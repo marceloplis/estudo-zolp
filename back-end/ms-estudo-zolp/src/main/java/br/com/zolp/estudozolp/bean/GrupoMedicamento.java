@@ -1,37 +1,26 @@
-package br.com.zolp.estudozolp.entity;
+package br.com.zolp.estudozolp.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 /**
- * Classe responsável pelo mapeamento da entidade TbGrupoMedicamento.
+ * Classe responsável pelas informacoes de GrupoMedicamento.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
-@Entity
-@Table(name="TbGrupoMedicamento")
-public class TbGrupoMedicamento implements Serializable{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class GrupoMedicamento implements Serializable{
 
     private static final long serialVersionUID = -1336973835722435282L;
 
-    @Id
-//	@SequenceGenerator(name = "seq_grpmedicamento", sequenceName = "seq_grpmedicamento", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_grpmedicamento")
-    @Column(name = "idGrupoMedicamento", nullable = false)
     private Long idGrupoMedicamento;
-
-    @Column(name = "dsGrupoMedicamento", nullable = false)
     private String dsGrupoMedicamento;
 
-    public TbGrupoMedicamento() {
+    public GrupoMedicamento() {
     }
 
     /**
@@ -72,9 +61,9 @@ public class TbGrupoMedicamento implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbGrupoMedicamento{" +
-                "idGrupoMedicamento=" + idGrupoMedicamento +
-                ", dsGrupoMedicamento='" + dsGrupoMedicamento + '\'' +
-                '}';
+        return "GrupoMedicamento{" +
+            "idGrupoMedicamento=" + idGrupoMedicamento +
+            ", dsGrupoMedicamento='" + dsGrupoMedicamento + '\'' +
+            '}';
     }
 }

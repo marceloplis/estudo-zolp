@@ -2,8 +2,8 @@
  * Package Responsável por armazenar as classes <b>Config</b>, responsáveis
  * pela configuracao da aplicação, repositórios, etc.
  *
- * @author stp
- * @version 1.0
+ * @author mamede
+ * @version 0.0.1-SNAPSHOT
  *
  */
-package br.com.grupostp.authzero.configuration;
+package br.com.zolp.estudozolp.configuration;

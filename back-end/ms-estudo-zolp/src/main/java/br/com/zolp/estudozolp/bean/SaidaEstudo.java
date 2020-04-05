@@ -1,68 +1,37 @@
-package br.com.zolp.estudozolp.entity;
+package br.com.zolp.estudozolp.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 /**
- * Classe responsável pelo mapeamento da entidade TbSaidaEstudo.
+ * Classe responsável pelas informacoes de SaidaEstudo.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
-@Entity
-@Table(name = "TbSaidaEstudo")
-public class TbSaidaEstudo implements Serializable{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SaidaEstudo implements Serializable{
 
     private static final long serialVersionUID = -2797653853629696970L;
 
-    @Id
-//	@SequenceGenerator(name = "seq_saida", sequenceName = "seq_saida", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_saida")
-    @Column(name = "idSaidaEstudo", nullable = false)
     private Long idSaidaEstudo;
-
-    @Column(name = "idPaciente", nullable = false)
     private Long idPaciente;
-
-    @Column(name = "dtInclusao", nullable = false)
     private Date dtInclusao;
-
-    @Column(name = "nuVisita")
     private Integer nuVisita;
-
-    @Column(name = "dtSaida", nullable = false)
     private Date dtSaida;
-
-    @Column(name = "dtOcorrencia")
     private Date dtOcorrencia;
-
-    @Column(name = "motivo")
     private Integer motivo;
-
-    @Column(name = "flEvolucaoObito")
     private String flEvolucaoObito;
-
-    @Column(name = "stAprovacao")
     private String stAprovacao;
-
-    @Column(name = "assinatura")
     private String assinatura;
-
-    @Column(name = "dtAssinatura")
     private Date dtAssinatura;
-
-    @Column(name = "observacao")
     private String observacao;
 
-    public TbSaidaEstudo() {
+    public SaidaEstudo() {
     }
 
     /**
@@ -283,19 +252,19 @@ public class TbSaidaEstudo implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbSaidaEstudo{" +
-                "idSaidaEstudo=" + idSaidaEstudo +
-                ", idPaciente=" + idPaciente +
-                ", dtInclusao=" + dtInclusao +
-                ", nuVisita=" + nuVisita +
-                ", dtSaida=" + dtSaida +
-                ", dtOcorrencia=" + dtOcorrencia +
-                ", motivo=" + motivo +
-                ", flEvolucaoObito='" + flEvolucaoObito + '\'' +
-                ", stAprovacao='" + stAprovacao + '\'' +
-                ", assinatura='" + assinatura + '\'' +
-                ", dtAssinatura=" + dtAssinatura +
-                ", observacao='" + observacao + '\'' +
-                '}';
+        return "SaidaEstudo{" +
+            "idSaidaEstudo=" + idSaidaEstudo +
+            ", idPaciente=" + idPaciente +
+            ", dtInclusao=" + dtInclusao +
+            ", nuVisita=" + nuVisita +
+            ", dtSaida=" + dtSaida +
+            ", dtOcorrencia=" + dtOcorrencia +
+            ", motivo=" + motivo +
+            ", flEvolucaoObito='" + flEvolucaoObito + '\'' +
+            ", stAprovacao='" + stAprovacao + '\'' +
+            ", assinatura='" + assinatura + '\'' +
+            ", dtAssinatura=" + dtAssinatura +
+            ", observacao='" + observacao + '\'' +
+            '}';
     }
 }

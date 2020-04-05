@@ -1,109 +1,50 @@
-package br.com.zolp.estudozolp.entity;
+package br.com.zolp.estudozolp.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 /**
- * Classe responsável pelo mapeamento da entidade TbPaciente.
+ * Classe responsável pelas informacoes de Paciente.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
-@Entity
-@Table(name="TbPaciente")
-public class TbPaciente implements Serializable{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Paciente implements Serializable{
 
     private static final long serialVersionUID = -8687430250073332167L;
 
-    @Id
-//	@SequenceGenerator(name = "seq_paciente", sequenceName = "seq_paciente", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_paciente")
-    @Column(name="idPaciente", nullable = false)
     private Long idPaciente;
-
-    @Column(name="idUnidadePesquisa", nullable = false)
     private Long idUnidadePesquisa;
-
-    @Column(name="cpf", nullable = false)
     private String cpf;
-
-    @Column(name="nome")
     private String nome;
-
-    @Column(name="iniciaisNome", nullable = false)
     private String iniciaisNome;
-
-    @Column(name="nuRegistroProtocolo", nullable = false)
     private String nuRegistroProtocolo;
-
-    @Column(name="endereco")
     private String endereco;
-
-    @Column(name="nuEndereco")
     private Integer nuEndereco;
-
-    @Column(name="complEndereco")
     private String complEndereco;
-
-    @Column(name="bairro")
     private String bairro;
-
-    @Column(name="cidade")
     private String cidade;
-
-    @Column(name="uf")
     private String uf;
-
-    @Column(name="cep")
     private String cep;
-
-    @Column(name="telResidencial")
     private String telResidencial;
-
-    @Column(name="telCelular")
     private String telCelular;
-
-    @Column(name="telTrabalho")
     private String telTrabalho;
-
-    @Column(name="telRecado")
     private String telRecado;
-
-    @Column(name="pessoaRecado")
     private String pessoaRecado;
-
-    @Column(name="profissao")
     private String profissao;
-
-    @Column(name="dtNascimento")
     private Date dtNascimento;
-
-    @Column(name="escolaridade")
     private Integer escolaridade;
-
-    @Column(name="raca")
     private Integer raca;
-
-    @Column(name="sexo")
     private String sexo;
-
-    @Column(name="flAtivo")
     private String flAtivo;
-
-    @Column(name="dtInclusao")
     private Date dtInclusao;
 
-    public TbPaciente() {
+    public Paciente() {
     }
 
     /**
@@ -558,32 +499,32 @@ public class TbPaciente implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbPaciente{" +
-                "idPaciente=" + idPaciente +
-                ", idUnidadePesquisa=" + idUnidadePesquisa +
-                ", cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", iniciaisNome='" + iniciaisNome + '\'' +
-                ", nuRegistroProtocolo='" + nuRegistroProtocolo + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", nuEndereco=" + nuEndereco +
-                ", complEndereco='" + complEndereco + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", uf='" + uf + '\'' +
-                ", cep='" + cep + '\'' +
-                ", telResidencial='" + telResidencial + '\'' +
-                ", telCelular='" + telCelular + '\'' +
-                ", telTrabalho='" + telTrabalho + '\'' +
-                ", telRecado='" + telRecado + '\'' +
-                ", pessoaRecado='" + pessoaRecado + '\'' +
-                ", profissao='" + profissao + '\'' +
-                ", dtNascimento=" + dtNascimento +
-                ", escolaridade=" + escolaridade +
-                ", raca=" + raca +
-                ", sexo='" + sexo + '\'' +
-                ", flAtivo='" + flAtivo + '\'' +
-                ", dtInclusao=" + dtInclusao +
-                '}';
+        return "Paciente{" +
+            "idPaciente=" + idPaciente +
+            ", idUnidadePesquisa=" + idUnidadePesquisa +
+            ", cpf='" + cpf + '\'' +
+            ", nome='" + nome + '\'' +
+            ", iniciaisNome='" + iniciaisNome + '\'' +
+            ", nuRegistroProtocolo='" + nuRegistroProtocolo + '\'' +
+            ", endereco='" + endereco + '\'' +
+            ", nuEndereco=" + nuEndereco +
+            ", complEndereco='" + complEndereco + '\'' +
+            ", bairro='" + bairro + '\'' +
+            ", cidade='" + cidade + '\'' +
+            ", uf='" + uf + '\'' +
+            ", cep='" + cep + '\'' +
+            ", telResidencial='" + telResidencial + '\'' +
+            ", telCelular='" + telCelular + '\'' +
+            ", telTrabalho='" + telTrabalho + '\'' +
+            ", telRecado='" + telRecado + '\'' +
+            ", pessoaRecado='" + pessoaRecado + '\'' +
+            ", profissao='" + profissao + '\'' +
+            ", dtNascimento=" + dtNascimento +
+            ", escolaridade=" + escolaridade +
+            ", raca=" + raca +
+            ", sexo='" + sexo + '\'' +
+            ", flAtivo='" + flAtivo + '\'' +
+            ", dtInclusao=" + dtInclusao +
+            '}';
     }
 }

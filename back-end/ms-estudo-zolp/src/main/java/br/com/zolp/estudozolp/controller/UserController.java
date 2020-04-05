@@ -1,7 +1,6 @@
 package br.com.zolp.estudozolp.controller;
 
 import br.com.zolp.estudozolp.bean.User;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +10,6 @@ import java.security.Principal;
 import java.util.Base64;
 
 @RestController
-//@CrossOrigin
 public class UserController {
 
 	@RequestMapping("/login")

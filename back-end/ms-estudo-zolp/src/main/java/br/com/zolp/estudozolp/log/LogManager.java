@@ -1,6 +1,6 @@
 package br.com.zolp.estudozolp.log;
 
-import br.com.grupostp.library.stplog.service.types.TipoLog;
+import br.com.zolp.estudozolp.types.TipoLog;
 import br.com.zolp.estudozolp.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

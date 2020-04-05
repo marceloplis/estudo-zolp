@@ -1,40 +1,27 @@
-package br.com.zolp.estudozolp.entity;
+package br.com.zolp.estudozolp.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
 /**
- * Classe responsável pelo mapeamento da entidade TbMedicamento.
+ * Classe responsável pelas informacoes de Medicamento.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
-@Entity
-@Table(name="TbMedicamento")
-public class TbMedicamento implements Serializable{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Medicamento implements Serializable{
 
     private static final long serialVersionUID = -859240691596392099L;
 
-    @Id
-//	@SequenceGenerator(name = "seq_medicamento", sequenceName = "seq_medicamento", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_medicamento")
-    @Column(name = "idMedicamento", nullable = false)
     private Long idMedicamento;
-
-    @Column(name = "idGrupoMedicamento", nullable = false)
     private Long idGrupoMedicamento;
-
-    @Column(name = "dsMedicamento", nullable = false)
     private String dsMedicamento;
 
-    public TbMedicamento() {
+    public Medicamento() {
     }
 
     /**
@@ -93,10 +80,10 @@ public class TbMedicamento implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbMedicamento{" +
-                "idMedicamento=" + idMedicamento +
-                ", idGrupoMedicamento=" + idGrupoMedicamento +
-                ", dsMedicamento='" + dsMedicamento + '\'' +
-                '}';
+        return "Medicamento{" +
+            "idMedicamento=" + idMedicamento +
+            ", idGrupoMedicamento=" + idGrupoMedicamento +
+            ", dsMedicamento='" + dsMedicamento + '\'' +
+            '}';
     }
 }

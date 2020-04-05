@@ -1,43 +1,27 @@
-package br.com.zolp.estudozolp.entity;
+package br.com.zolp.estudozolp.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-//import javax.persistence.Transient;
-
 /**
- * Classe responsável pelo mapeamento da entidade TbDoencaEvento.
+ * Classe responsável pelas informacoes de DoencaEvento.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
-@Entity
-@Table(name="TbDoencaEvento")
-public class TbDoencaEvento implements Serializable{
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class DoencaEvento implements Serializable{
 
     private static final long serialVersionUID = -9221770510383778092L;
 
-    // TODO Verificar a necessidade de manter o sequence generator,
-    // pois na tabela ja existe o AUTO_INCREMENT
-    @Id
-//	@SequenceGenerator(name = "seq_doenca", sequenceName = "seq_doenca", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_doenca")
-    @Column(name = "idDoencaEvento", nullable = false)
     private Long idDoencaEvento;
-
-    @Column(name = "dsDoenca", nullable = false)
     private String dsDoenca;
-
-    @Column(name = "siglaDoenca")
     private String siglaDoenca;
 
-    public TbDoencaEvento() {
+    public DoencaEvento() {
     }
 
     /**
@@ -96,10 +80,10 @@ public class TbDoencaEvento implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbDoencaEvento{" +
-                "idDoencaEvento=" + idDoencaEvento +
-                ", dsDoenca='" + dsDoenca + '\'' +
-                ", siglaDoenca='" + siglaDoenca + '\'' +
-                '}';
+        return "DoencaEvento{" +
+            "idDoencaEvento=" + idDoencaEvento +
+            ", dsDoenca='" + dsDoenca + '\'' +
+            ", siglaDoenca='" + siglaDoenca + '\'' +
+            '}';
     }
 }
