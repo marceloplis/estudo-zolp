@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Base64;
 
-@RestController
+/**
+ *  Controller teste de login.
+ *
+ * @author mamede
+ * @version 0.0.1-SNAPSHOT
+ */@RestController
 public class UserController {
 
 	@RequestMapping("/login")

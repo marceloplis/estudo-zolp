@@ -1,38 +1,34 @@
 package br.com.zolp.estudozolp.converters;
 
-import br.com.zolp.estudozolp.bean.UsuarioSistema;
-import br.com.zolp.estudozolp.entity.TbUsuarioSistema;
+import br.com.zolp.estudozolp.bean.AuditoriaEstudo;
+import br.com.zolp.estudozolp.entity.TbAuditoriaEstudo;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 /**
- * Classe reponsável por efetuar a conversão dos objetos da consulta dos Usuarios
- * {@link UsuarioSistema} para o objeto {@link TbUsuarioSistema}.
+ * Classe reponsável por efetuar a conversão dos objetos
+ * {@link AuditoriaEstudo} para o objeto {@link TbAuditoriaEstudo}.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
 @Component
-public class AuditoriaEstudoToEntity implements Converter<UsuarioSistema, TbUsuarioSistema> {
+public class AuditoriaEstudoToEntity implements Converter<AuditoriaEstudo, TbAuditoriaEstudo> {
 
     @Override
-    public final TbUsuarioSistema convert(final UsuarioSistema source) {
+    public final TbAuditoriaEstudo convert(final AuditoriaEstudo source) {
 
-        TbUsuarioSistema doc = new TbUsuarioSistema();
+        TbAuditoriaEstudo doc = new TbAuditoriaEstudo();
 
         if (source != null) {
 
-            doc.setIdUsuario(source.getIdUsuario());
-            doc.setIdUnidadePesquisa(source.getIdUnidadePesquisa());
-            doc.setIdPerfil(source.getIdPerfil());
+            doc.setIdAuditoriaEstudo(source.getIdAuditoriaEstudo());
             doc.setUsername(source.getUsername());
-            doc.setNome(source.getNome());
-            doc.setSenha(source.getSenha());
-            doc.setEmail(source.getEmail());
-            doc.setFlSenhaTemporaria(source.getFlSenhaTemporaria());
-            doc.setFlAtivo(source.getFlAtivo());
-            doc.setFone(source.getFone());
-            doc.setAdmin(source.getAdmin());
+            doc.setDtModificacao(source.getDtModificacao());
+            doc.setTpModificacao(source.getTpModificacao());
+            doc.setDsModificacao(source.getDsModificacao());
+            doc.setTpEntidade(source.getTpEntidade());
+            doc.setIdPaciente(source.getIdPaciente());
 
         }
 

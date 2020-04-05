@@ -1,39 +1,39 @@
 package br.com.zolp.estudozolp.converters;
 
-import br.com.zolp.estudozolp.bean.UsuarioSistema;
-import br.com.zolp.estudozolp.entity.TbUsuarioSistema;
+import br.com.zolp.estudozolp.bean.UnidadePesquisa;
+import br.com.zolp.estudozolp.entity.TbUnidadePesquisa;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 /**
- * Classe reponsável por efetuar a conversão dos objetos da consulta dos Usuarios
- * {@link UsuarioSistema} para o objeto {@link TbUsuarioSistema}.
+ * Classe reponsável por efetuar a conversão dos objetos
+ * {@link UnidadePesquisa} para o objeto {@link TbUnidadePesquisa}.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
 @Component
-public class UnidadePesquisaToEntity implements Converter<UsuarioSistema, TbUsuarioSistema> {
+public class UnidadePesquisaToEntity implements Converter<UnidadePesquisa, TbUnidadePesquisa> {
 
     @Override
-    public final TbUsuarioSistema convert(final UsuarioSistema source) {
+    public final TbUnidadePesquisa convert(final UnidadePesquisa source) {
 
-        TbUsuarioSistema doc = new TbUsuarioSistema();
+        TbUnidadePesquisa doc = new TbUnidadePesquisa();
 
         if (source != null) {
 
-            doc.setIdUsuario(source.getIdUsuario());
             doc.setIdUnidadePesquisa(source.getIdUnidadePesquisa());
-            doc.setIdPerfil(source.getIdPerfil());
-            doc.setUsername(source.getUsername());
-            doc.setNome(source.getNome());
-            doc.setSenha(source.getSenha());
+            doc.setDsUnidade(source.getDsUnidade());
+            doc.setSiglaUnidade(source.getSiglaUnidade());
+            doc.setTelUnidade(source.getTelUnidade());
+            doc.setEndereco(source.getEndereco());
+            doc.setCidade(source.getCidade());
+            doc.setUf(source.getUf());
+            doc.setCep(source.getCep());
+            doc.setInvestigador(source.getInvestigador());
+            doc.setCoordenador(source.getCoordenador());
             doc.setEmail(source.getEmail());
-            doc.setFlSenhaTemporaria(source.getFlSenhaTemporaria());
-            doc.setFlAtivo(source.getFlAtivo());
-            doc.setFone(source.getFone());
-            doc.setAdmin(source.getAdmin());
-
+            doc.setNuUnidade(source.getNuUnidade());
         }
 
         return doc;

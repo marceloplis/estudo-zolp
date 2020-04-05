@@ -2,8 +2,8 @@
  * Package Responsável por armazenar as classes <b>Controller</b>, responsáveis
  * pelo mapeamento da chamada dos serviços REST.
  *
- * @author stp
- * @version 1.0
+ * @author mamede
+ * @version 0.0.1-SNAPSHOT
  *
  */
-package br.com.grupostp.authzero.controller;
+package br.com.zolp.estudozolp.controller;

@@ -1,38 +1,39 @@
 package br.com.zolp.estudozolp.converters;
 
-import br.com.zolp.estudozolp.bean.UsuarioSistema;
-import br.com.zolp.estudozolp.entity.TbUsuarioSistema;
+import br.com.zolp.estudozolp.bean.SaidaEstudo;
+import br.com.zolp.estudozolp.entity.TbSaidaEstudo;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 /**
  * Classe reponsável por efetuar a conversão dos objetos da consulta dos Usuarios
- * {@link TbUsuarioSistema} para o objeto {@link UsuarioSistema}.
+ * {@link TbSaidaEstudo} para o objeto {@link SaidaEstudo}.
  *
  * @author mamede
  * @version 0.0.1-SNAPSHOT
  */
 @Component
-public class SaidaEstudoToBean implements Converter<TbUsuarioSistema, UsuarioSistema> {
+public class SaidaEstudoToBean implements Converter<TbSaidaEstudo, SaidaEstudo> {
 
     @Override
-    public final UsuarioSistema convert(final TbUsuarioSistema source) {
+    public final SaidaEstudo convert(final TbSaidaEstudo source) {
 
-        UsuarioSistema doc = new UsuarioSistema();
+        SaidaEstudo doc = new SaidaEstudo();
 
         if (source != null) {
 
-            doc.setIdUsuario(source.getIdUsuario());
-            doc.setIdUnidadePesquisa(source.getIdUnidadePesquisa());
-            doc.setIdPerfil(source.getIdPerfil());
-            doc.setUsername(source.getUsername());
-            doc.setNome(source.getNome());
-            doc.setSenha(source.getSenha());
-            doc.setEmail(source.getEmail());
-            doc.setFlSenhaTemporaria(source.getFlSenhaTemporaria());
-            doc.setFlAtivo(source.getFlAtivo());
-            doc.setFone(source.getFone());
-            doc.setAdmin(source.getAdmin());
+            doc.setIdSaidaEstudo(source.getIdSaidaEstudo());
+            doc.setIdPaciente(source.getIdPaciente());
+            doc.setDtInclusao(source.getDtInclusao());
+            doc.setNuVisita(source.getNuVisita());
+            doc.setDtSaida(source.getDtSaida());
+            doc.setDtOcorrencia(source.getDtOcorrencia());
+            doc.setMotivo(source.getMotivo());
+            doc.setFlEvolucaoObito(source.getFlEvolucaoObito());
+            doc.setStAprovacao(source.getStAprovacao());
+            doc.setAssinatura(source.getAssinatura());
+            doc.setDtAssinatura(source.getDtAssinatura());
+            doc.setObservacao(source.getObservacao());
 
         }
 

@@ -1,7 +1,7 @@
 package br.com.zolp.estudozolp.controller;
 
-import br.com.grupostp.library.stplog.service.types.TipoLog;
 import br.com.zolp.estudozolp.log.LogManager;
+import br.com.zolp.estudozolp.types.TipoLog;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.event.Level;
 import org.springframework.web.bind.annotation.GetMapping;
