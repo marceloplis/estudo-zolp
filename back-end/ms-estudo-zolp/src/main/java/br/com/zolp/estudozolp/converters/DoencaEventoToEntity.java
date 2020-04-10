@@ -2,6 +2,7 @@ package br.com.zolp.estudozolp.converters;
 
 import br.com.zolp.estudozolp.bean.DoencaEvento;
 import br.com.zolp.estudozolp.entity.TbDoencaEvento;
+import br.com.zolp.estudozolp.util.Eval;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,32 @@ public class DoencaEventoToEntity implements Converter<DoencaEvento, TbDoencaEve
             doc.setDsDoenca(source.getDsDoenca());
             doc.setSiglaDoenca(source.getSiglaDoenca());
 
+        }
+
+        return doc;
+    }
+
+
+    /**
+     * Atualiza o objeto com os dados para update.
+     *
+     * @param source
+     * @return
+     */
+    public final TbDoencaEvento populate(final DoencaEvento source) {
+
+        TbDoencaEvento doc = new TbDoencaEvento();
+
+        if(Eval.isNotEmpty(source.getIdDoencaEvento())) {
+            doc.setIdDoencaEvento(source.getIdDoencaEvento());
+        }
+
+        if(Eval.isNotEmpty(source.getDsDoenca())) {
+            doc.setDsDoenca(source.getDsDoenca());
+        }
+
+        if(Eval.isNotEmpty(source.getSiglaDoenca())) {
+            doc.setSiglaDoenca(source.getSiglaDoenca());
         }
 
         return doc;

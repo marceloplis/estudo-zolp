@@ -2,7 +2,6 @@ package br.com.zolp.estudozolp.service.impl;
 
 import br.com.zolp.estudozolp.bean.Paciente;
 import br.com.zolp.estudozolp.bean.filtro.FiltroPaciente;
-import br.com.zolp.estudozolp.converters.PacienteObjectToBean;
 import br.com.zolp.estudozolp.converters.PacienteToBean;
 import br.com.zolp.estudozolp.converters.PacienteToEntity;
 import br.com.zolp.estudozolp.entity.TbPaciente;
@@ -45,9 +44,6 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Autowired
     private PacienteToEntity pacienteToEntity;
-
-    @Autowired
-    private PacienteObjectToBean pacienteObjectToBean;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -151,7 +147,7 @@ public class PacienteServiceImpl implements PacienteService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listPaciente
-                .add(pacienteObjectToBean.convert((Object[]) object)));
+                .add(pacienteToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, PacienteServiceImpl.class, "consultarPaciente",

@@ -53,9 +53,6 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
     private AuditoriaEstudoToEntity auditoriaEstudoToEntity;
 
     @Autowired
-    private AuditoriaEstudoObjectToBean auditoriaEstudoObjectToBean;
-
-    @Autowired
     private UnidadePesquisaRepository unidadePesquisaRepository;
 
     @Autowired
@@ -65,9 +62,6 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
     private UnidadePesquisaToEntity unidadePesquisaToEntity;
 
     @Autowired
-    private UnidadePesquisaObjectToBean unidadePesquisaObjectToBean;
-
-    @Autowired
     private SaidaEstudoRepository saidaEstudoRepository;
 
     @Autowired
@@ -75,9 +69,6 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
     @Autowired
     private SaidaEstudoToEntity saidaEstudoToEntity;
-
-    @Autowired
-    private SaidaEstudoObjectToBean saidaEstudoObjectToBean;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -181,7 +172,7 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listaAuditoria
-                .add(auditoriaEstudoObjectToBean.convert((Object[]) object)));
+                .add(auditoriaEstudoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, EstudoZolpServiceImpl.class, "consultarAuditoria",
@@ -415,7 +406,7 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listUnidadePesquisa
-                .add(unidadePesquisaObjectToBean.convert((Object[]) object)));
+                .add(unidadePesquisaToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, EstudoZolpServiceImpl.class, "consultarUnidadePesquisa",
@@ -657,7 +648,7 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> saidaEstudos
-                .add(saidaEstudoObjectToBean.convert((Object[]) object)));
+                .add(saidaEstudoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, EstudoZolpServiceImpl.class, "consultarSaidaEstudo",

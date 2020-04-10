@@ -1,5 +1,6 @@
 package br.com.zolp.estudozolp.bean;
 
+import br.com.zolp.estudozolp.excel.SheetHeader;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -18,7 +19,11 @@ public class Paciente implements Serializable{
 
     private static final long serialVersionUID = -8687430250073332167L;
 
+    //@SheetColumnIgnore // Ignora o processamento da coluna
+    @SheetHeader( name = "Código do Paciente")
     private Long idPaciente;
+
+    @SheetHeader( name = "Código da Unidade de Pesquisa")
     private Long idUnidadePesquisa;
     private String cpf;
     private String nome;

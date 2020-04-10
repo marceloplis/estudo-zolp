@@ -2,6 +2,7 @@ package br.com.zolp.estudozolp.converters;
 
 import br.com.zolp.estudozolp.bean.SaidaEstudo;
 import br.com.zolp.estudozolp.entity.TbSaidaEstudo;
+import br.com.zolp.estudozolp.util.Eval;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -40,4 +41,64 @@ public class SaidaEstudoToEntity implements Converter<SaidaEstudo, TbSaidaEstudo
         return doc;
     }
 
+    /**
+     * Atualiza o objeto com os dados para update.
+     *
+     * @param source
+     * @return
+     */
+    public final TbSaidaEstudo populate(final SaidaEstudo source) {
+
+        TbSaidaEstudo doc = new TbSaidaEstudo();
+
+        if(Eval.isNotEmpty(source.getIdSaidaEstudo())) {
+            doc.setIdSaidaEstudo(source.getIdSaidaEstudo());
+        }
+
+        if(Eval.isNotEmpty(source.getIdPaciente())) {
+            doc.setIdPaciente(source.getIdPaciente());
+        }
+
+        if(Eval.isNotEmpty(source.getDtInclusao())) {
+            doc.setDtInclusao(source.getDtInclusao());
+        }
+
+        if(Eval.isNotEmpty(source.getNuVisita())) {
+            doc.setNuVisita(source.getNuVisita());
+        }
+
+        if(Eval.isNotEmpty(source.getDtSaida())) {
+            doc.setDtSaida(source.getDtSaida());
+        }
+
+        if(Eval.isNotEmpty(source.getDtOcorrencia())) {
+            doc.setDtOcorrencia(source.getDtOcorrencia());
+        }
+
+        if(Eval.isNotEmpty(source.getMotivo())) {
+            doc.setMotivo(source.getMotivo());
+        }
+
+        if(Eval.isNotEmpty(source.getFlEvolucaoObito())) {
+            doc.setFlEvolucaoObito(source.getFlEvolucaoObito());
+        }
+
+        if(Eval.isNotEmpty(source.getStAprovacao())) {
+            doc.setStAprovacao(source.getStAprovacao());
+        }
+
+        if(Eval.isNotEmpty(source.getAssinatura())) {
+            doc.setAssinatura(source.getAssinatura());
+        }
+
+        if(Eval.isNotEmpty(source.getDtAssinatura())) {
+            doc.setDtAssinatura(source.getDtAssinatura());
+        }
+
+        if(Eval.isNotEmpty(source.getObservacao())) {
+            doc.setObservacao(source.getObservacao());
+        }
+
+        return doc;
+    }
 }

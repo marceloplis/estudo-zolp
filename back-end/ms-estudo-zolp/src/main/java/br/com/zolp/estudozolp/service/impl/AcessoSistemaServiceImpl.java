@@ -49,9 +49,6 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
     private UsuarioSistemaToEntity usuarioSistemaToEntity;
 
     @Autowired
-    private UsuarioSistemaObjectToBean usuarioSistemaObjectToBean;
-
-    @Autowired
     private PerfilAcessoRepository perfilAcessoRepository;
 
     @Autowired
@@ -59,9 +56,6 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
 
     @Autowired
     private PerfilAcessoToEntity perfilAcessoToEntity;
-
-    @Autowired
-    private PerfilAcessoObjectToBean perfilAcessoObjectToBean;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -166,7 +160,7 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listUsuario
-                .add(usuarioSistemaObjectToBean.convert((Object[]) object)));
+                .add(usuarioSistemaToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, AcessoSistemaServiceImpl.class, "consultarUsuario",
@@ -402,7 +396,7 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listPerfil
-                .add(perfilAcessoObjectToBean.convert((Object[]) object)));
+                .add(perfilAcessoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, AcessoSistemaServiceImpl.class, "consultarPerfil",

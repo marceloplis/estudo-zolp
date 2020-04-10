@@ -2,6 +2,7 @@ package br.com.zolp.estudozolp.converters;
 
 import br.com.zolp.estudozolp.bean.Medicamento;
 import br.com.zolp.estudozolp.entity.TbMedicamento;
+import br.com.zolp.estudozolp.util.Eval;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,31 @@ public class MedicamentoToEntity implements Converter<Medicamento, TbMedicamento
             doc.setIdGrupoMedicamento(source.getIdGrupoMedicamento());
             doc.setDsMedicamento(source.getDsMedicamento());
 
+        }
+
+        return doc;
+    }
+
+    /**
+     * Atualiza o objeto com os dados para update.
+     *
+     * @param source
+     * @return
+     */
+    public final TbMedicamento populate(final Medicamento source) {
+
+        TbMedicamento doc = new TbMedicamento();
+
+        if(Eval.isNotEmpty(source.getIdMedicamento())) {
+            doc.setIdMedicamento(source.getIdMedicamento());
+        }
+
+        if(Eval.isNotEmpty(source.getIdGrupoMedicamento())) {
+            doc.setIdGrupoMedicamento(source.getIdGrupoMedicamento());
+        }
+
+        if(Eval.isNotEmpty(source.getDsMedicamento())) {
+            doc.setDsMedicamento(source.getDsMedicamento());
         }
 
         return doc;

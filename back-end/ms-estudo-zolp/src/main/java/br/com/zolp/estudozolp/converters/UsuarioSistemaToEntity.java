@@ -2,6 +2,7 @@ package br.com.zolp.estudozolp.converters;
 
 import br.com.zolp.estudozolp.bean.UsuarioSistema;
 import br.com.zolp.estudozolp.entity.TbUsuarioSistema;
+import br.com.zolp.estudozolp.util.Eval;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -39,4 +40,60 @@ public class UsuarioSistemaToEntity implements Converter<UsuarioSistema, TbUsuar
         return doc;
     }
 
+    /**
+     * Atualiza o objeto com os dados para update.
+     *
+     * @param source
+     * @return
+     */
+    public final TbUsuarioSistema populate(final UsuarioSistema source) {
+
+        TbUsuarioSistema doc = new TbUsuarioSistema();
+
+        if(Eval.isNotEmpty(source.getIdUsuario())) {
+            doc.setIdUsuario(source.getIdUsuario());
+        }
+
+        if(Eval.isNotEmpty(source.getIdUnidadePesquisa())) {
+            doc.setIdUnidadePesquisa(source.getIdUnidadePesquisa());
+        }
+
+        if(Eval.isNotEmpty(source.getIdPerfil())) {
+            doc.setIdPerfil(source.getIdPerfil());
+        }
+
+        if(Eval.isNotEmpty(source.getUsername())) {
+            doc.setUsername(source.getUsername());
+        }
+
+        if(Eval.isNotEmpty(source.getNome())) {
+            doc.setNome(source.getNome());
+        }
+
+        if(Eval.isNotEmpty(source.getSenha())) {
+            doc.setSenha(source.getSenha());
+        }
+
+        if(Eval.isNotEmpty(source.getEmail())) {
+            doc.setEmail(source.getEmail());
+        }
+
+        if(Eval.isNotEmpty(source.getFlSenhaTemporaria())) {
+            doc.setFlSenhaTemporaria(source.getFlSenhaTemporaria());
+        }
+
+        if(Eval.isNotEmpty(source.getFlAtivo())) {
+            doc.setFlAtivo(source.getFlAtivo());
+        }
+
+        if(Eval.isNotEmpty(source.getFone())) {
+            doc.setFone(source.getFone());
+        }
+
+        if(Eval.isNotEmpty(source.getAdmin())) {
+            doc.setAdmin(source.getAdmin());
+        }
+
+        return doc;
+    }
 }

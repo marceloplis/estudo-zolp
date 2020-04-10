@@ -2,6 +2,7 @@ package br.com.zolp.estudozolp.converters;
 
 import br.com.zolp.estudozolp.bean.UnidadePesquisa;
 import br.com.zolp.estudozolp.entity.TbUnidadePesquisa;
+import br.com.zolp.estudozolp.util.Eval;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -39,4 +40,64 @@ public class UnidadePesquisaToEntity implements Converter<UnidadePesquisa, TbUni
         return doc;
     }
 
+    /**
+     * Atualiza o objeto com os dados para update.
+     *
+     * @param source
+     * @return
+     */
+    public final TbUnidadePesquisa populate(final UnidadePesquisa source) {
+
+        TbUnidadePesquisa doc = new TbUnidadePesquisa();
+
+        if(Eval.isNotEmpty(source.getIdUnidadePesquisa())) {
+            doc.setIdUnidadePesquisa(source.getIdUnidadePesquisa());
+        }
+
+        if(Eval.isNotEmpty(source.getDsUnidade())) {
+            doc.setDsUnidade(source.getDsUnidade());
+        }
+
+        if(Eval.isNotEmpty(source.getSiglaUnidade())) {
+            doc.setSiglaUnidade(source.getSiglaUnidade());
+        }
+
+        if(Eval.isNotEmpty(source.getTelUnidade())) {
+            doc.setTelUnidade(source.getTelUnidade());
+        }
+
+        if(Eval.isNotEmpty(source.getEndereco())) {
+            doc.setEndereco(source.getEndereco());
+        }
+
+        if(Eval.isNotEmpty(source.getCidade())) {
+            doc.setCidade(source.getCidade());
+        }
+
+        if(Eval.isNotEmpty(source.getUf())) {
+            doc.setUf(source.getUf());
+        }
+
+        if(Eval.isNotEmpty(source.getCep())) {
+            doc.setCep(source.getCep());
+        }
+
+        if(Eval.isNotEmpty(source.getInvestigador())) {
+            doc.setInvestigador(source.getInvestigador());
+        }
+
+        if(Eval.isNotEmpty(source.getCoordenador())) {
+            doc.setCoordenador(source.getCoordenador());
+        }
+
+        if(Eval.isNotEmpty(source.getEmail())) {
+            doc.setEmail(source.getEmail());
+        }
+
+        if(Eval.isNotEmpty(source.getNuUnidade())) {
+            doc.setNuUnidade(source.getNuUnidade());
+        }
+
+        return doc;
+    }
 }

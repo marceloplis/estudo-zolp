@@ -54,9 +54,6 @@ public class MedicamentoServiceImpl implements MedicamentoService {
     private MedicamentoToEntity medicamentoToEntity;
 
     @Autowired
-    private MedicamentoObjectToBean medicamentoObjectToBean;
-
-    @Autowired
     private GrupoMedicamentoRepository grupoMedicamentoRepository;
 
     @Autowired
@@ -64,9 +61,6 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
     @Autowired
     private GrupoMedicamentoToEntity grupoMedicamentoToEntity;
-
-    @Autowired
-    private GrupoMedicamentoObjectToBean grupoMedicamentoObjectToBean;
 
     @Autowired
     private EventoAdversoRepository eventoAdversoRepository;
@@ -78,9 +72,6 @@ public class MedicamentoServiceImpl implements MedicamentoService {
     private EventoAdversoToEntity eventoAdversoToEntity;
 
     @Autowired
-    private EventoAdversoObjectToBean eventoAdversoObjectToBean;
-
-    @Autowired
     private DoencaEventoRepository doencaEventoRepository;
 
     @Autowired
@@ -88,9 +79,6 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
     @Autowired
     private DoencaEventoToEntity doencaEventoToEntity;
-
-    @Autowired
-    private DoencaEventoObjectToBean doencaEventoObjectToBean;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -195,7 +183,7 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listMedicamento
-                .add(medicamentoObjectToBean.convert((Object[]) object)));
+                .add(medicamentoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, MedicamentoServiceImpl.class, "consultarMedicamento",
@@ -430,7 +418,7 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listGrupoMedicamento
-                .add(grupoMedicamentoObjectToBean.convert((Object[]) object)));
+                .add(grupoMedicamentoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, MedicamentoServiceImpl.class, "consultarGrupoMedicamento",
@@ -663,7 +651,7 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listEventoAdverso
-                .add(eventoAdversoObjectToBean.convert((Object[]) object)));
+                .add(eventoAdversoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, MedicamentoServiceImpl.class, "consultarEventoAdverso",
@@ -910,7 +898,7 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
             ((List<?>) query.getResultList())
                 .forEach(object -> listDoencaEvento
-                .add(doencaEventoObjectToBean.convert((Object[]) object)));
+                .add(doencaEventoToBean.convert((Object[]) object)));
 
         } catch (Exception e) {
             LogManager.logDetalhe(Level.ERROR, MedicamentoServiceImpl.class, "consultarDoencaEvento",
