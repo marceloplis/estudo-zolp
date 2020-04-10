@@ -171,6 +171,9 @@ public class PacienteServiceImpl implements PacienteService {
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, PacienteServiceImpl.class, "incluirPaciente");
 
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        paciente.setIdPaciente(null);
+
         LogManager.logDetalhe(Level.INFO, PacienteServiceImpl.class, "incluirPaciente",
             " Dados entrada [ " + paciente + " ].");
 

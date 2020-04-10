@@ -3,13 +3,7 @@ package br.com.zolp.estudozolp.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbSaidaEstudo.
@@ -24,8 +18,8 @@ public class TbSaidaEstudo implements Serializable{
     private static final long serialVersionUID = -2797653853629696970L;
 
     @Id
-//	@SequenceGenerator(name = "seq_saida", sequenceName = "seq_saida", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_saida")
+	@SequenceGenerator(name = "seq_saida_generator", sequenceName = "seq_saida", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_saida_generator")
     @Column(name = "idSaidaEstudo", nullable = false)
     private Long idSaidaEstudo;
 
@@ -284,18 +278,18 @@ public class TbSaidaEstudo implements Serializable{
     @Override
     public final String toString() {
         return "TbSaidaEstudo{" +
-                "idSaidaEstudo=" + idSaidaEstudo +
-                ", idPaciente=" + idPaciente +
-                ", dtInclusao=" + dtInclusao +
-                ", nuVisita=" + nuVisita +
-                ", dtSaida=" + dtSaida +
-                ", dtOcorrencia=" + dtOcorrencia +
-                ", motivo=" + motivo +
-                ", flEvolucaoObito='" + flEvolucaoObito + '\'' +
-                ", stAprovacao='" + stAprovacao + '\'' +
-                ", assinatura='" + assinatura + '\'' +
-                ", dtAssinatura=" + dtAssinatura +
-                ", observacao='" + observacao + '\'' +
-                '}';
+            "idSaidaEstudo=" + idSaidaEstudo +
+            ", idPaciente=" + idPaciente +
+            ", dtInclusao=" + dtInclusao +
+            ", nuVisita=" + nuVisita +
+            ", dtSaida=" + dtSaida +
+            ", dtOcorrencia=" + dtOcorrencia +
+            ", motivo=" + motivo +
+            ", flEvolucaoObito='" + flEvolucaoObito + '\'' +
+            ", stAprovacao='" + stAprovacao + '\'' +
+            ", assinatura='" + assinatura + '\'' +
+            ", dtAssinatura=" + dtAssinatura +
+            ", observacao='" + observacao + '\'' +
+            '}';
     }
 }

@@ -1,17 +1,8 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbPaciente.
@@ -26,8 +17,8 @@ public class TbPaciente implements Serializable{
     private static final long serialVersionUID = -8687430250073332167L;
 
     @Id
-//	@SequenceGenerator(name = "seq_paciente", sequenceName = "seq_paciente", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_paciente")
+	@SequenceGenerator(name = "seq_paciente_generator", sequenceName = "seq_paciente", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_paciente_generator")
     @Column(name="idPaciente", nullable = false)
     private Long idPaciente;
 
@@ -559,31 +550,31 @@ public class TbPaciente implements Serializable{
     @Override
     public final String toString() {
         return "TbPaciente{" +
-                "idPaciente=" + idPaciente +
-                ", idUnidadePesquisa=" + idUnidadePesquisa +
-                ", cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", iniciaisNome='" + iniciaisNome + '\'' +
-                ", nuRegistroProtocolo='" + nuRegistroProtocolo + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", nuEndereco=" + nuEndereco +
-                ", complEndereco='" + complEndereco + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", uf='" + uf + '\'' +
-                ", cep='" + cep + '\'' +
-                ", telResidencial='" + telResidencial + '\'' +
-                ", telCelular='" + telCelular + '\'' +
-                ", telTrabalho='" + telTrabalho + '\'' +
-                ", telRecado='" + telRecado + '\'' +
-                ", pessoaRecado='" + pessoaRecado + '\'' +
-                ", profissao='" + profissao + '\'' +
-                ", dtNascimento=" + dtNascimento +
-                ", escolaridade=" + escolaridade +
-                ", raca=" + raca +
-                ", sexo='" + sexo + '\'' +
-                ", flAtivo='" + flAtivo + '\'' +
-                ", dtInclusao=" + dtInclusao +
-                '}';
+            "idPaciente=" + idPaciente +
+            ", idUnidadePesquisa=" + idUnidadePesquisa +
+            ", cpf='" + cpf + '\'' +
+            ", nome='" + nome + '\'' +
+            ", iniciaisNome='" + iniciaisNome + '\'' +
+            ", nuRegistroProtocolo='" + nuRegistroProtocolo + '\'' +
+            ", endereco='" + endereco + '\'' +
+            ", nuEndereco=" + nuEndereco +
+            ", complEndereco='" + complEndereco + '\'' +
+            ", bairro='" + bairro + '\'' +
+            ", cidade='" + cidade + '\'' +
+            ", uf='" + uf + '\'' +
+            ", cep='" + cep + '\'' +
+            ", telResidencial='" + telResidencial + '\'' +
+            ", telCelular='" + telCelular + '\'' +
+            ", telTrabalho='" + telTrabalho + '\'' +
+            ", telRecado='" + telRecado + '\'' +
+            ", pessoaRecado='" + pessoaRecado + '\'' +
+            ", profissao='" + profissao + '\'' +
+            ", dtNascimento=" + dtNascimento +
+            ", escolaridade=" + escolaridade +
+            ", raca=" + raca +
+            ", sexo='" + sexo + '\'' +
+            ", flAtivo='" + flAtivo + '\'' +
+            ", dtInclusao=" + dtInclusao +
+            '}';
     }
 }

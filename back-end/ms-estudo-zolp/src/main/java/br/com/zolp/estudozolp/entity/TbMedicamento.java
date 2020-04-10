@@ -1,14 +1,7 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbMedicamento.
@@ -23,8 +16,8 @@ public class TbMedicamento implements Serializable{
     private static final long serialVersionUID = -859240691596392099L;
 
     @Id
-//	@SequenceGenerator(name = "seq_medicamento", sequenceName = "seq_medicamento", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_medicamento")
+	@SequenceGenerator(name = "seq_medicamento_generator", sequenceName = "seq_medicamento", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_medicamento_generator")
     @Column(name = "idMedicamento", nullable = false)
     private Long idMedicamento;
 
@@ -94,9 +87,9 @@ public class TbMedicamento implements Serializable{
     @Override
     public final String toString() {
         return "TbMedicamento{" +
-                "idMedicamento=" + idMedicamento +
-                ", idGrupoMedicamento=" + idGrupoMedicamento +
-                ", dsMedicamento='" + dsMedicamento + '\'' +
-                '}';
+            "idMedicamento=" + idMedicamento +
+            ", idGrupoMedicamento=" + idGrupoMedicamento +
+            ", dsMedicamento='" + dsMedicamento + '\'' +
+            '}';
     }
 }

@@ -1,16 +1,7 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbUsuarioSistema.
@@ -25,8 +16,8 @@ public class TbUsuarioSistema implements Serializable{
 	private static final long serialVersionUID = 8452078778449621833L;
 
 	@Id
-//	@SequenceGenerator(name = "seq_usuario", sequenceName = "seq_usuario", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_usuario")
+	@SequenceGenerator(name = "seq_usuario_generator", sequenceName = "seq_usuario", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_usuario_generator")
 	@Column(name="idUsuarioSistema", nullable = false)
 	private Long idUsuario;
 

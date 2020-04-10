@@ -1,15 +1,7 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-//import javax.persistence.Transient;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbDoencaEvento.
@@ -23,11 +15,9 @@ public class TbDoencaEvento implements Serializable{
 
     private static final long serialVersionUID = -9221770510383778092L;
 
-    // TODO Verificar a necessidade de manter o sequence generator,
-    // pois na tabela ja existe o AUTO_INCREMENT
     @Id
-//	@SequenceGenerator(name = "seq_doenca", sequenceName = "seq_doenca", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_doenca")
+	@SequenceGenerator(name = "seq_doenca_generator", sequenceName = "seq_doenca", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_doenca_generator")
     @Column(name = "idDoencaEvento", nullable = false)
     private Long idDoencaEvento;
 
@@ -97,9 +87,9 @@ public class TbDoencaEvento implements Serializable{
     @Override
     public final String toString() {
         return "TbDoencaEvento{" +
-                "idDoencaEvento=" + idDoencaEvento +
-                ", dsDoenca='" + dsDoenca + '\'' +
-                ", siglaDoenca='" + siglaDoenca + '\'' +
-                '}';
+            "idDoencaEvento=" + idDoencaEvento +
+            ", dsDoenca='" + dsDoenca + '\'' +
+            ", siglaDoenca='" + siglaDoenca + '\'' +
+            '}';
     }
 }

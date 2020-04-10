@@ -1,14 +1,7 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 
 /**
@@ -24,8 +17,8 @@ public class TbUnidadePesquisa implements Serializable{
     private static final long serialVersionUID = 1288214482724547066L;
 
     @Id
-//	@SequenceGenerator(name = "seq_unidade", sequenceName = "seq_unidade", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_unidade")
+	@SequenceGenerator(name = "seq_unidade_generator", sequenceName = "seq_unidade", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_unidade_generator")
     @Column(name = "idUnidadePesquisa", nullable = false)
     private Long idUnidadePesquisa;
 

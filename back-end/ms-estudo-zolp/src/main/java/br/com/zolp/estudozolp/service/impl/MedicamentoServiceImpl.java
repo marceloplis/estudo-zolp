@@ -208,6 +208,9 @@ public class MedicamentoServiceImpl implements MedicamentoService {
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, MedicamentoServiceImpl.class, "incluirMedicamento");
 
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        medicamento.setIdMedicamento(null);
+
         LogManager.logDetalhe(Level.INFO, MedicamentoServiceImpl.class, "incluirMedicamento",
             " Dados entrada [ " + medicamento + " ].");
 
@@ -443,6 +446,9 @@ public class MedicamentoServiceImpl implements MedicamentoService {
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, MedicamentoServiceImpl.class, "incluirGrupoMedicamento");
 
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        grupoMedicamento.setIdGrupoMedicamento(null);
+
         LogManager.logDetalhe(Level.INFO, MedicamentoServiceImpl.class, "incluirGrupoMedicamento",
             " Dados entrada [ " + grupoMedicamento + " ].");
 
@@ -675,6 +681,9 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, MedicamentoServiceImpl.class, "incluirEventoAdverso");
+
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        eventoAdverso.setIdEventoAdverso(null);
 
         LogManager.logDetalhe(Level.INFO, MedicamentoServiceImpl.class, "incluirEventoAdverso",
             " Dados entrada [ " + eventoAdverso + " ].");
@@ -922,6 +931,9 @@ public class MedicamentoServiceImpl implements MedicamentoService {
 
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, MedicamentoServiceImpl.class, "incluirDoencaEvento");
+
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        doencaEvento.setIdDoencaEvento(null);
 
         LogManager.logDetalhe(Level.INFO, MedicamentoServiceImpl.class, "incluirDoencaEvento",
             " Dados entrada [ " + doencaEvento + " ].");

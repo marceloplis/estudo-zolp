@@ -184,6 +184,9 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, AcessoSistemaServiceImpl.class, "incluirUsuario");
 
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        usuarioSistema.setIdUsuario(null);
+
         LogManager.logDetalhe(Level.INFO, AcessoSistemaServiceImpl.class, "incluirUsuario",
             " Dados entrada [ " + usuarioSistema + " ].");
 
@@ -419,6 +422,9 @@ public class AcessoSistemaServiceImpl implements AcessoSistemaService {
 
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, AcessoSistemaServiceImpl.class, "incluirPerfil");
+
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        perfilAcesso.setIdPerfilAcesso(null);
 
         LogManager.logDetalhe(Level.INFO, AcessoSistemaServiceImpl.class, "incluirPerfil",
             " Dados entrada [ " + perfilAcesso + " ].");

@@ -196,6 +196,9 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, EstudoZolpServiceImpl.class, "incluirAuditoria");
 
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        auditoriaEstudo.setIdAuditoriaEstudo(null);
+
         LogManager.logDetalhe(Level.INFO, EstudoZolpServiceImpl.class, "incluirAuditoria",
             " Dados entrada [ " + auditoriaEstudo + " ].");
 
@@ -429,6 +432,9 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, EstudoZolpServiceImpl.class, "incluirUnidadePesquisa");
+
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        unidadePesquisa.setIdUnidadePesquisa(null);
 
         LogManager.logDetalhe(Level.INFO, EstudoZolpServiceImpl.class, "incluirUnidadePesquisa",
             " Dados entrada [ " + unidadePesquisa + " ].");
@@ -671,6 +677,9 @@ public class EstudoZolpServiceImpl implements EstudoZolpService {
 
         // Logging de entrada
         LogManager.log(Level.INFO, TipoLog.ENTRADA, EstudoZolpServiceImpl.class, "incluirSaidaEstudo");
+
+        // Remove o Id para que o mesmo obtenha um novo sequencial
+        saidaEstudo.setIdSaidaEstudo(null);
 
         LogManager.logDetalhe(Level.INFO, EstudoZolpServiceImpl.class, "incluirSaidaEstudo",
             " Dados entrada [ " + saidaEstudo + " ].");

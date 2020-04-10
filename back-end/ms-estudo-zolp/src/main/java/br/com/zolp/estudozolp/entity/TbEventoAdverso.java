@@ -1,17 +1,8 @@
 package br.com.zolp.estudozolp.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-//import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 /**
  * Classe responsável pelo mapeamento da entidade TbEventoAdverso.
@@ -24,8 +15,8 @@ import javax.persistence.Table;
 public class TbEventoAdverso implements Serializable{
 
     @Id
-//	@SequenceGenerator(name = "seq_evento", sequenceName = "seq_evento", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_evento")
+	@SequenceGenerator(name = "seq_evento_generator", sequenceName = "seq_evento", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_evento_generator")
     @Column(name = "idEventoAdverso", nullable = false)
     private Long idEventoAdverso;
 

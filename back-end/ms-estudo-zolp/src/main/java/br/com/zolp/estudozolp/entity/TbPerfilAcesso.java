@@ -16,8 +16,8 @@ public class TbPerfilAcesso implements Serializable {
     private static final long serialVersionUID = 24158426272384L;
 
     @Id
-//	@SequenceGenerator(name = "seq_perfil", sequenceName = "seq_perfil", allocationSize = 1)
-//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_perfil")
+    @SequenceGenerator(name = "seq_perfil_generator", sequenceName = "seq_perfil", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_perfil_generator")
     @Column(name="idperfilacesso", nullable = false)
     private Long idPerfilAcesso;
 
@@ -66,8 +66,8 @@ public class TbPerfilAcesso implements Serializable {
     @Override
     public final String toString() {
         return "PerfilAcessoEntity{" +
-                "idPerfilAcesso=" + idPerfilAcesso +
-                ", dsPerfil='" + dsPerfil + '\'' +
-                '}';
+            "idPerfilAcesso=" + idPerfilAcesso +
+            ", dsPerfil='" + dsPerfil + '\'' +
+            '}';
     }
 }
