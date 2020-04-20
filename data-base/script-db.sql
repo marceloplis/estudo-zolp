@@ -288,6 +288,30 @@ CREATE TABLE IF NOT EXISTS estudozolp.TbQuestPolissonografia (
 ENGINE = InnoDB;
 
 
+
+-- -----------------------------------------------------
+-- Table estudozolp.TbVisita
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS estudozolp.TbVisita (
+  idVisita INT NOT NULL AUTO_INCREMENT,
+  nuVisita INT NOT NULL,
+  idPaciente INT NOT NULL,
+  dtInclusao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  dtRealizacao DATE NOT NULL,
+  assinaturaAprovador VARCHAR(20) NULL,
+  dtAssinaturaAprovacao DATETIME NULL,
+  stAprovacao CHAR(1) NULL DEFAULT 'P',
+  PRIMARY KEY (idVisita),
+  UNIQUE INDEX idxIdVisita (idVisita ASC),
+  UNIQUE INDEX idxVisita_Paciente (nuVisita ASC, idPaciente ASC),
+  INDEX idxFKVisitaPaciente (idPaciente ASC),
+  CONSTRAINT FKVisitaPaciente
+    FOREIGN KEY (idPaciente)
+    REFERENCES estudozolp.TbPaciente (idPaciente)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 -- -----------------------------------------------------
 -- Table estudozolp.TbQuestHabitosUltimoMes
 -- -----------------------------------------------------
@@ -298,28 +322,36 @@ CREATE TABLE IF NOT EXISTS estudozolp.TbQuestHabitosUltimoMes (
   tempoParaAdormecer INT NULL,
   horaAcordar TIME NULL,
   horasSono INT NULL,
-  problemasSono INT NULL, -- (1 - Não conseguia dormir em 30 minutos / 2 - Despertou no meio da noite ou de madrugada / 3 - Teve que levantar à noite para ir ao banheiro / 4 - Não conseguia respirar de forma satisfatória / 5 - Tossia ou roncava alto / 6 - Sentia muito frio / 7 - Sentia muito calor / 8 - Tinha sonhos ruins / 9 - Tinha dor / 10 - Outra razão (por favor, descreva em outro problema))
-  tipoProblemaSono INT NULL, -- (1 - Nunca no ultimo mes / 2 - Menos de uma vez por semana / 3 - Uma ou Dusas Vezes por semana / 4 - Tres ou mais vezes por semana)
+  -- (1 - Não conseguia dormir em 30 minutos / 2 - Despertou no meio da noite ou de madrugada / 3 - Teve que levantar à noite para ir ao banheiro / 4 - Não conseguia respirar de forma satisfatória / 5 - Tossia ou roncava alto / 6 - Sentia muito frio / 7 - Sentia muito calor / 8 - Tinha sonhos ruins / 9 - Tinha dor / 10 - Outra razão (por favor, descreva em outro problema))
+  problemasSono INT NULL, 
+  -- (1 - Nunca no ultimo mes / 2 - Menos de uma vez por semana / 3 - Uma ou Dusas Vezes por semana / 4 - Tres ou mais vezes por semana)
+  tipoProblemaSono INT NULL,
   outroProblemaSono VARCHAR(100) NULL,
-  qualidadeSono INT NULL, -- (1 - Muito boa / 2 - Boa / 3 - Ruim / 4 - Muito ruim)
-  freqMedicamentoSono INT NULL, -- ( 1 - Nunca no último mês / 2 - Menos de uma vez por semana / 3 - Uma ou duas vezes por semana / 4 - Três ou mais vezes por semana )
-  freqDificManterAcordado INT NULL, -- ( 1 - Nunca no último mês / 2 - Menos de uma vez por semana / 3 - Uma ou duas vezes por semana / 4 - Três ou mais vezes por semana )
-  difManterEstusiasmo INT NULL, -- (1 - Nenhum pouco problemático / 2 - Apenas ligeiramente problemático / 3 - Um pouco problemático / 4 - Muito problemático )
-  divideQuartoCama INT NULL, -- (1 - Não tem parceiro de cama ou colega de quarto / 2 - Parceiro ou colega em outro quarto / 3 - Parceiro no mesmo quarto, mas não na mesma cama / 4 - Parceiro na mesma cama)
-  reporProblemasSono INT NULL, -- (1 - Ronco Alto / 2 - Longas Pausas Respiracao / 3 - Chutar ou Sacudir Pernas / 4 - Desorientacao ou confusao / 5 - Outras inquietacoes (descreva em outro problema))
-  tipoReportProblemaSono INT NULL, -- (1 - Nunca no ultimo mes / 2 - Menos de uma vez por semana / 3 - Uma ou Dusas Vezes por semana / 4 - Tres ou mais vezes por semana)
-  outroReportProblemaSono VARCHAR (100) NULL
+  -- (1 - Muito boa / 2 - Boa / 3 - Ruim / 4 - Muito ruim)
+  qualidadeSono INT NULL, 
+  -- ( 1 - Nunca no último mês / 2 - Menos de uma vez por semana / 3 - Uma ou duas vezes por semana / 4 - Três ou mais vezes por semana ) 
+  freqMedicamentoSono INT NULL, 
+  -- ( 1 - Nunca no último mês / 2 - Menos de uma vez por semana / 3 - Uma ou duas vezes por semana / 4 - Três ou mais vezes por semana )
+  freqDificManterAcordado INT NULL, 
+  -- (1 - Nenhum pouco problemático / 2 - Apenas ligeiramente problemático / 3 - Um pouco problemático / 4 - Muito problemático )
+  difManterEstusiasmo INT NULL,
+  -- (1 - Não tem parceiro de cama ou colega de quarto / 2 - Parceiro ou colega em outro quarto / 3 - Parceiro no mesmo quarto, mas não na mesma cama / 4 - Parceiro na mesma cama) 
+  divideQuartoCama INT NULL,
+  -- (1 - Ronco Alto / 2 - Longas Pausas Respiracao / 3 - Chutar ou Sacudir Pernas / 4 - Desorientacao ou confusao / 5 - Outras inquietacoes (descreva em outro problema)) 
+  reporProblemasSono INT NULL,
+  -- (1 - Nunca no ultimo mes / 2 - Menos de uma vez por semana / 3 - Uma ou Dusas Vezes por semana / 4 - Tres ou mais vezes por semana) 
+  tipoReportProblemaSono INT NULL, 
+  outroReportProblemaSono VARCHAR (100) NULL,
   PRIMARY KEY (idQuestHabitos),
   UNIQUE INDEX idQuestHabitos_UNIQUE (idQuestHabitos ASC),
   UNIQUE INDEX idVisita_UNIQUE (idVisita ASC),
-  INDEX FKPolissonografiaVisita (idVisita ASC),
-  CONSTRAINT FKQuestHabitosUltimoMesVisita
+  INDEX FKQuestHabitosVisita (idVisita ASC),
+  CONSTRAINT FKQuestHabitosVisita
     FOREIGN KEY (idVisita)
-    REFERENCES estudomorpheos.TbVisita (idVisita)
+    REFERENCES estudozolp.TbVisita (idVisita)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 
 -- -----------------------------------------------------
