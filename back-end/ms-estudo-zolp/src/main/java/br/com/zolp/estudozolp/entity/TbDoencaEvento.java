@@ -86,10 +86,11 @@ public class TbDoencaEvento implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbDoencaEvento{" +
-            "idDoencaEvento=" + idDoencaEvento +
-            ", dsDoenca='" + dsDoenca + '\'' +
-            ", siglaDoenca='" + siglaDoenca + '\'' +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbDoencaEvento{");
+        sb.append("idDoencaEvento=").append(idDoencaEvento);
+        sb.append(", dsDoenca='").append(dsDoenca).append('\'');
+        sb.append(", siglaDoenca='").append(siglaDoenca).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

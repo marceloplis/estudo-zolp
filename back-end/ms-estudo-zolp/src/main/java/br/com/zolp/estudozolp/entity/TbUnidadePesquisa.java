@@ -276,19 +276,20 @@ public class TbUnidadePesquisa implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbUnidadePesquisa{" +
-            "idUnidadePesquisa=" + idUnidadePesquisa +
-            ", dsUnidade='" + dsUnidade + '\'' +
-            ", siglaUnidade='" + siglaUnidade + '\'' +
-            ", telUnidade='" + telUnidade + '\'' +
-            ", endereco='" + endereco + '\'' +
-            ", cidade='" + cidade + '\'' +
-            ", uf='" + uf + '\'' +
-            ", cep='" + cep + '\'' +
-            ", investigador='" + investigador + '\'' +
-            ", coordenador='" + coordenador + '\'' +
-            ", email='" + email + '\'' +
-            ", nuUnidade=" + nuUnidade +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbUnidadePesquisa{");
+        sb.append("idUnidadePesquisa=").append(idUnidadePesquisa);
+        sb.append(", dsUnidade='").append(dsUnidade).append('\'');
+        sb.append(", siglaUnidade='").append(siglaUnidade).append('\'');
+        sb.append(", telUnidade='").append(telUnidade).append('\'');
+        sb.append(", endereco='").append(endereco).append('\'');
+        sb.append(", cidade='").append(cidade).append('\'');
+        sb.append(", uf='").append(uf).append('\'');
+        sb.append(", cep='").append(cep).append('\'');
+        sb.append(", investigador='").append(investigador).append('\'');
+        sb.append(", coordenador='").append(coordenador).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", nuUnidade=").append(nuUnidade);
+        sb.append('}');
+        return sb.toString();
     }
 }

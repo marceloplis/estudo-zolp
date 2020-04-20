@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import br.com.zolp.estudozolp.util.Eval;
 import jxl.CellView;
 import jxl.Workbook;
 import jxl.WorkbookSettings;
@@ -24,7 +25,10 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
+import org.omg.CosNaming.NamingContextPackage.NotEmpty;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GeraPlanilha {
 
     private List<?> objetos;
@@ -286,6 +290,41 @@ public class GeraPlanilha {
 		processar(null, out, trataNomePlanilha(nomePlanilha));
 		
 	}
+
+	/**
+	 * Efetua o processamento da lista de objetos existente enviando o resultado para um arquivo informado
+	 *
+	 * @param file
+	 * @param nomePlanilha
+	 */
+	public void processar(List<?> list, File file, String nomePlanilha) throws Exception{
+
+		if(Eval.isEmpty(list) || Eval.isNull(file))
+			throw new IllegalArgumentException("Target da geracao do arquivo nao informado. "
+					+ "Favor informar o caminho do arquivo.");
+
+		this.objetos = list;
+		processar(file, null, trataNomePlanilha(nomePlanilha));
+
+	}
+
+	/**
+	 * Efetua o processamento da lista de objetos existente enviando o resultado para um arquivo informado
+	 *
+	 * @param caminho
+	 * @param nomePlanilha
+	 */
+	public void processar(String caminho, String nomePlanilha) throws Exception{
+
+		if((caminho == null || caminho.isEmpty()))
+			throw new IllegalArgumentException("Target da geracao do arquivo nao informado. "
+					+ "Favor informar o caminho do arquivo.");
+
+		File file = new File(caminho);
+
+		processar(file, null, trataNomePlanilha(nomePlanilha));
+
+	}
 	
 	
 	/**
@@ -307,25 +346,6 @@ public class GeraPlanilha {
 		
 	}
 
-	
-	/**
-	 * Efetua o processamento da lista de objetos existente enviando o resultado para um arquivo informado
-	 * 
-	 * @param caminho
-	 * @param nomePlanilha
-	 */
-	public void processar(String caminho, String nomePlanilha) throws Exception{
-		
-		if((caminho == null || caminho.isEmpty()))
-			throw new IllegalArgumentException("Target da geracao do arquivo nao informado. "
-				+ "Favor informar o caminho do arquivo.");
-		
-		File file = new File(caminho);
-		
-		processar(file, null, trataNomePlanilha(nomePlanilha));
-
-	}
-    
 	/**
 	 * Efetua o tratamento do nome da planilha
 	 * 

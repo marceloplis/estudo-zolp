@@ -337,22 +337,23 @@ public class TbEventoAdverso implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbEventoAdverso{" +
-            "idEventoAdverso=" + idEventoAdverso +
-            ", idDoenca=" + idDoenca +
-            ", idPaciente=" + idPaciente +
-            ", dtInclusao=" + dtInclusao +
-            ", dtInicio=" + dtInicio +
-            ", dtFim=" + dtFim +
-            ", PER_E01='" + PER_E01 + '\'' +
-            ", PER_E02='" + PER_E02 + '\'' +
-            ", PER_E03='" + PER_E03 + '\'' +
-            ", PER_E04='" + PER_E04 + '\'' +
-            ", observacao='" + observacao + '\'' +
-            ", stAprovacao='" + stAprovacao + '\'' +
-            ", assinatura='" + assinatura + '\'' +
-            ", dtAssinatura=" + dtAssinatura +
-            ", nuVisita=" + nuVisita +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbEventoAdverso{");
+        sb.append("idEventoAdverso=").append(idEventoAdverso);
+        sb.append(", idDoenca=").append(idDoenca);
+        sb.append(", idPaciente=").append(idPaciente);
+        sb.append(", dtInclusao=").append(dtInclusao);
+        sb.append(", dtInicio=").append(dtInicio);
+        sb.append(", dtFim=").append(dtFim);
+        sb.append(", PER_E01='").append(PER_E01).append('\'');
+        sb.append(", PER_E02='").append(PER_E02).append('\'');
+        sb.append(", PER_E03='").append(PER_E03).append('\'');
+        sb.append(", PER_E04='").append(PER_E04).append('\'');
+        sb.append(", observacao='").append(observacao).append('\'');
+        sb.append(", stAprovacao='").append(stAprovacao).append('\'');
+        sb.append(", assinatura='").append(assinatura).append('\'');
+        sb.append(", dtAssinatura=").append(dtAssinatura);
+        sb.append(", nuVisita=").append(nuVisita);
+        sb.append('}');
+        return sb.toString();
     }
 }

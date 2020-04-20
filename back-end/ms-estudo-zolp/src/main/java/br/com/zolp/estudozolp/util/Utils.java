@@ -18,14 +18,14 @@ public class Utils {
 	    return s;   
 	} 
 	
-	public static void main(String[] args) {
-		try {
-			System.out.println(criptografaSenha("123"));
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		try {
+//			System.out.println(criptografaSenha("123"));
+//		} catch (NoSuchAlgorithmException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 	public static final String converteDataString(Date data){ 	  
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");	  

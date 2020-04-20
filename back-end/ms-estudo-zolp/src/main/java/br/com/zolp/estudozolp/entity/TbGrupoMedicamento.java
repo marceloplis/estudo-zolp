@@ -65,9 +65,10 @@ public class TbGrupoMedicamento implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbGrupoMedicamento{" +
-            "idGrupoMedicamento=" + idGrupoMedicamento +
-            ", dsGrupoMedicamento='" + dsGrupoMedicamento + '\'' +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbGrupoMedicamento{");
+        sb.append("idGrupoMedicamento=").append(idGrupoMedicamento);
+        sb.append(", dsGrupoMedicamento='").append(dsGrupoMedicamento).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

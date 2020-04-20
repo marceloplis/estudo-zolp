@@ -171,14 +171,15 @@ public class TbAuditoriaEstudo implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbAuditoriaEstudo{" +
-            "idAuditoriaEstudo=" + idAuditoriaEstudo +
-            ", username='" + username + '\'' +
-            ", dtModificacao=" + dtModificacao +
-            ", tpModificacao='" + tpModificacao + '\'' +
-            ", dsModificacao='" + dsModificacao + '\'' +
-            ", tpEntidade='" + tpEntidade + '\'' +
-            ", idPaciente=" + idPaciente +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbAuditoriaEstudo{");
+        sb.append("idAuditoriaEstudo=").append(idAuditoriaEstudo);
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", dtModificacao=").append(dtModificacao);
+        sb.append(", tpModificacao='").append(tpModificacao).append('\'');
+        sb.append(", dsModificacao='").append(dsModificacao).append('\'');
+        sb.append(", tpEntidade='").append(tpEntidade).append('\'');
+        sb.append(", idPaciente=").append(idPaciente);
+        sb.append('}');
+        return sb.toString();
     }
 }

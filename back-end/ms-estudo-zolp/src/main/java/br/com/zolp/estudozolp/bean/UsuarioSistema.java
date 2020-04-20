@@ -1,5 +1,7 @@
 package br.com.zolp.estudozolp.bean;
 
+import br.com.zolp.estudozolp.excel.SheetColumnIgnore;
+import br.com.zolp.estudozolp.excel.SheetHeader;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -15,18 +17,41 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UsuarioSistema implements Serializable{
 
+	@SheetColumnIgnore
 	private static final long serialVersionUID = 8452078778449621833L;
 
+	@SheetHeader(name = "Codigo do Usuário")
 	private Long idUsuario;
+
+	@SheetHeader(name = "Codigo da unidade de pesquisa")
 	private Long idUnidadePesquisa;
+
+	@SheetHeader(name = "Codigo do Perfil")
 	private Long idPerfil;
+
+	@SheetHeader(name = "Nome do usuário")
 	private String username;
+
+	@SheetHeader(name = "Nome")
 	private String nome;
+
+	@SheetHeader(name = "Senha")
+	@SheetColumnIgnore
 	private String senha;
+
+	@SheetHeader(name = "Email do usuario.")
 	private String email;
+
+	@SheetHeader(name = "Senha temporária.")
 	private boolean flSenhaTemporaria;
+
+	@SheetHeader(name = "Usuário ativo.")
 	private boolean flAtivo;
+
+	@SheetHeader(name = "Telefone do usuário.")
 	private String fone;
+
+	@SheetHeader(name = "Administrador.")
 	private String admin;
 
 	public UsuarioSistema() {

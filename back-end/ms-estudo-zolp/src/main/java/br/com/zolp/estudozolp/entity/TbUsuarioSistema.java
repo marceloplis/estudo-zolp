@@ -254,18 +254,19 @@ public class TbUsuarioSistema implements Serializable{
 
 	@Override
 	public final String toString() {
-		return "TbUsuarioSistema{" +
-			"idUsuario=" + idUsuario +
-			", idUnidadePesquisa=" + idUnidadePesquisa +
-			", idPerfil=" + idPerfil +
-			", username='" + username + '\'' +
-			", nome='" + nome + '\'' +
-			", senha='" + senha + '\'' +
-			", email='" + email + '\'' +
-			", flSenhaTemporaria=" + flSenhaTemporaria +
-			", flAtivo=" + flAtivo +
-			", fone='" + fone + '\'' +
-			", admin='" + admin + '\'' +
-			'}';
+		final StringBuilder sb = new StringBuilder("TbUsuarioSistema{");
+		sb.append("idUsuario=").append(idUsuario);
+		sb.append(", idUnidadePesquisa=").append(idUnidadePesquisa);
+		sb.append(", idPerfil=").append(idPerfil);
+		sb.append(", username='").append(username).append('\'');
+		sb.append(", nome='").append(nome).append('\'');
+		sb.append(", senha='").append(senha).append('\'');
+		sb.append(", email='").append(email).append('\'');
+		sb.append(", flSenhaTemporaria=").append(flSenhaTemporaria);
+		sb.append(", flAtivo=").append(flAtivo);
+		sb.append(", fone='").append(fone).append('\'');
+		sb.append(", admin='").append(admin).append('\'');
+		sb.append('}');
+		return sb.toString();
 	}
 }

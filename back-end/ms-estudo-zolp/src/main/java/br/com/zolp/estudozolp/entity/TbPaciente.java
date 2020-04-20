@@ -549,32 +549,33 @@ public class TbPaciente implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbPaciente{" +
-            "idPaciente=" + idPaciente +
-            ", idUnidadePesquisa=" + idUnidadePesquisa +
-            ", cpf='" + cpf + '\'' +
-            ", nome='" + nome + '\'' +
-            ", iniciaisNome='" + iniciaisNome + '\'' +
-            ", nuRegistroProtocolo='" + nuRegistroProtocolo + '\'' +
-            ", endereco='" + endereco + '\'' +
-            ", nuEndereco=" + nuEndereco +
-            ", complEndereco='" + complEndereco + '\'' +
-            ", bairro='" + bairro + '\'' +
-            ", cidade='" + cidade + '\'' +
-            ", uf='" + uf + '\'' +
-            ", cep='" + cep + '\'' +
-            ", telResidencial='" + telResidencial + '\'' +
-            ", telCelular='" + telCelular + '\'' +
-            ", telTrabalho='" + telTrabalho + '\'' +
-            ", telRecado='" + telRecado + '\'' +
-            ", pessoaRecado='" + pessoaRecado + '\'' +
-            ", profissao='" + profissao + '\'' +
-            ", dtNascimento=" + dtNascimento +
-            ", escolaridade=" + escolaridade +
-            ", raca=" + raca +
-            ", sexo='" + sexo + '\'' +
-            ", flAtivo='" + flAtivo + '\'' +
-            ", dtInclusao=" + dtInclusao +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbPaciente{");
+        sb.append("idPaciente=").append(idPaciente);
+        sb.append(", idUnidadePesquisa=").append(idUnidadePesquisa);
+        sb.append(", cpf='").append(cpf).append('\'');
+        sb.append(", nome='").append(nome).append('\'');
+        sb.append(", iniciaisNome='").append(iniciaisNome).append('\'');
+        sb.append(", nuRegistroProtocolo='").append(nuRegistroProtocolo).append('\'');
+        sb.append(", endereco='").append(endereco).append('\'');
+        sb.append(", nuEndereco=").append(nuEndereco);
+        sb.append(", complEndereco='").append(complEndereco).append('\'');
+        sb.append(", bairro='").append(bairro).append('\'');
+        sb.append(", cidade='").append(cidade).append('\'');
+        sb.append(", uf='").append(uf).append('\'');
+        sb.append(", cep='").append(cep).append('\'');
+        sb.append(", telResidencial='").append(telResidencial).append('\'');
+        sb.append(", telCelular='").append(telCelular).append('\'');
+        sb.append(", telTrabalho='").append(telTrabalho).append('\'');
+        sb.append(", telRecado='").append(telRecado).append('\'');
+        sb.append(", pessoaRecado='").append(pessoaRecado).append('\'');
+        sb.append(", profissao='").append(profissao).append('\'');
+        sb.append(", dtNascimento=").append(dtNascimento);
+        sb.append(", escolaridade=").append(escolaridade);
+        sb.append(", raca=").append(raca);
+        sb.append(", sexo='").append(sexo).append('\'');
+        sb.append(", flAtivo='").append(flAtivo).append('\'');
+        sb.append(", dtInclusao=").append(dtInclusao);
+        sb.append('}');
+        return sb.toString();
     }
 }

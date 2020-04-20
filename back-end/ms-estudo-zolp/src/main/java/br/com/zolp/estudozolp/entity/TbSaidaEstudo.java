@@ -277,19 +277,20 @@ public class TbSaidaEstudo implements Serializable{
 
     @Override
     public final String toString() {
-        return "TbSaidaEstudo{" +
-            "idSaidaEstudo=" + idSaidaEstudo +
-            ", idPaciente=" + idPaciente +
-            ", dtInclusao=" + dtInclusao +
-            ", nuVisita=" + nuVisita +
-            ", dtSaida=" + dtSaida +
-            ", dtOcorrencia=" + dtOcorrencia +
-            ", motivo=" + motivo +
-            ", flEvolucaoObito='" + flEvolucaoObito + '\'' +
-            ", stAprovacao='" + stAprovacao + '\'' +
-            ", assinatura='" + assinatura + '\'' +
-            ", dtAssinatura=" + dtAssinatura +
-            ", observacao='" + observacao + '\'' +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbSaidaEstudo{");
+        sb.append("idSaidaEstudo=").append(idSaidaEstudo);
+        sb.append(", idPaciente=").append(idPaciente);
+        sb.append(", dtInclusao=").append(dtInclusao);
+        sb.append(", nuVisita=").append(nuVisita);
+        sb.append(", dtSaida=").append(dtSaida);
+        sb.append(", dtOcorrencia=").append(dtOcorrencia);
+        sb.append(", motivo=").append(motivo);
+        sb.append(", flEvolucaoObito='").append(flEvolucaoObito).append('\'');
+        sb.append(", stAprovacao='").append(stAprovacao).append('\'');
+        sb.append(", assinatura='").append(assinatura).append('\'');
+        sb.append(", dtAssinatura=").append(dtAssinatura);
+        sb.append(", observacao='").append(observacao).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -65,9 +65,10 @@ public class TbPerfilAcesso implements Serializable {
 
     @Override
     public final String toString() {
-        return "PerfilAcessoEntity{" +
-            "idPerfilAcesso=" + idPerfilAcesso +
-            ", dsPerfil='" + dsPerfil + '\'' +
-            '}';
+        final StringBuilder sb = new StringBuilder("TbPerfilAcesso{");
+        sb.append("idPerfilAcesso=").append(idPerfilAcesso);
+        sb.append(", dsPerfil='").append(dsPerfil).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

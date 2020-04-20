@@ -1,5 +1,7 @@
 package br.com.zolp.estudozolp.util;
 
+import org.springframework.http.MediaType;
+
 /**
  * Enumerator responsável por armazenar as constantes utilizadas na aplicacao.
  *
@@ -31,13 +33,10 @@ public final class Constants {
         SUCESSO = 0,
         ERRO = -1;
 
-    // Constantes de cartoes
-    public static final String
-            CARTAO_AMEX = "100001",
-            CARTAO_ELO = "100001000",
-            CARTAO_HIPERCARD = "100002",
-            CARTAO_MASTERCARD = "100003",
-            CARTAO_VISA = "100004";
+
+    // Constantes de MediaType
+    public static final MediaType
+        MT_APP_CSV = MediaType.parseMediaType("application/csv");
 
 
 
